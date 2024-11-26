@@ -71,18 +71,20 @@ function Home() {
 
 
     return (
-        <div className='p-[24px] bg-[#FCF8F6] relative ' >
-            <h1 className='text-[#260F08] font-Redhat font-extrabold text-[40px] leading-[120%] mb-[32px] '>Desserts</h1>
+        <div className={`p-[24px] md:p-[40px] bg-[#FCF8F6] relative transition-all duration-300 flex justify-center items-center`} >
+            <div>
+                <h1 className='text-[#260F08] font-Redhat font-extrabold text-[40px] leading-[120%] mb-[32px] '>Desserts</h1>
 
 
-            < div className='bg-green-500 space-y-[24px]'>
+                < div className='bg-green-500 space-y-[24px] md:space-y-0 md:grid md:grid-cols-3 md:gap-x-[24px] md:gap-y-[32px] '>
 
-                {
-                    data.map((item, index) => <Product key={index} data={item} addProduct={addProduct} decrementProduct={decrementProduct} />)
-                }
-            </div >
+                    {
+                        data.map((item, index) => <Product key={index} data={item} addProduct={addProduct} decrementProduct={decrementProduct} />)
+                    }
+                </div >
 
-            <Cart cartCount={cartCount} cartProduct={cartProduct} setCartProduct={setCartProduct} setConfirmation={setConfirmation} />
+                <Cart cartCount={cartCount} cartProduct={cartProduct} setCartProduct={setCartProduct} setConfirmation={setConfirmation} />
+            </div>
 
 
             {confirmation && <ConfirmPage cartProduct={cartProduct} setConfirmation={setConfirmation} />}

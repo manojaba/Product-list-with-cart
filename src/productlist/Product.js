@@ -22,7 +22,7 @@ function Product({ data, addProduct, decrementProduct }) {
 
 
     return (
-        <div className=' w-fit mx-auto'>
+        <div className=' w-fit mx-auto bg-red-500'>
             <div className='relative mb-[38px]  '>
                 <picture  >
                     <source srcSet={data.image.desktop} media='(min-width:1280px)' />
