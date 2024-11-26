@@ -7,6 +7,9 @@ import Product from './Product';
 
 function Home() {
 
+    const [confirmation, setConfirmation] = useState(true);
+
+
 
 
 
@@ -15,7 +18,7 @@ function Home() {
         return savedCart ? JSON.parse(savedCart) : [];
     });
 
-    console.log(`cart product : ${cartProduct.length}`)
+
 
     const [cartCount, setCartCount] = useState(() => {
         const savedCartCount = localStorage.getItem('cart');
@@ -34,6 +37,7 @@ function Home() {
 
 
     const addProduct = (thumbnail, name, category, price, qty) => {
+        console.log({ thumbnail, name, category, price, qty }); // Debug here
         setCartProduct((prev) => {
             const existingProduct = prev.find((item) => item.name === name);
             if (existingProduct) {
@@ -44,6 +48,11 @@ function Home() {
             return [...prev, { thumbnail, name, category, price, qty }];
         });
     };
+
+
+
+
+
 
     const decrementProduct = (name) => {
         setCartProduct((prev) => {
@@ -62,7 +71,7 @@ function Home() {
 
 
     return (
-        <div className='p-[24px] bg-[#FCF8F6]' >
+        <div className='p-[24px] bg-[#FCF8F6] relative ' >
             <h1 className='text-[#260F08] font-Redhat font-extrabold text-[40px] leading-[120%] mb-[32px] '>Desserts</h1>
 
 
@@ -73,8 +82,10 @@ function Home() {
                 }
             </div >
 
-            <Cart cartCount={cartCount} cartProduct={cartProduct} setCartProduct={setCartProduct} />
-            <ConfirmPage cartProduct={cartProduct} />
+            <Cart cartCount={cartCount} cartProduct={cartProduct} setCartProduct={setCartProduct} setConfirmation={setConfirmation} />
+
+
+            {confirmation && <ConfirmPage cartProduct={cartProduct} setConfirmation={setConfirmation} />}
 
 
 

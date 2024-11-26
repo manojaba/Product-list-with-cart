@@ -1,8 +1,13 @@
-import React from 'react'
+import React from 'react';
 
-function ConfirmPage({ cartProduct }) {
+function ConfirmPage({ cartProduct, setConfirmation }) {
+
+    const handleClick = () => {
+        setConfirmation((prev) => !prev);
+    }
+
     return (
-        <div className='p-[24px] pt-[40px] bg-red-300'>
+        <div className={`p-[24px] pt-[40px] bg-white rounded-[12px] space-y-[32px] flex flex-col fixed inset-0 top-[95px] z-50  mx-auto `}>
             <div className='space-y-[24px]'>
                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M21 32.121L13.5 24.6195L15.6195 22.5L21 27.879L32.3775 16.5L34.5 18.6225L21 32.121Z" fill="#1EA575" />
@@ -14,21 +19,35 @@ function ConfirmPage({ cartProduct }) {
                 </div>
             </div>
 
-            <div>
+            <div className='bg-[#FCF8F6] px-[24px] divide-y rounded-[8px] '>
                 {
                     cartProduct.map((product, index) => {
                         return (
-                            <div key={product.name} className='flex items-center justify-between my-[16px]  '>
-                                <div>
-                                    <p className='font-Redhat text-[#260F08] font-semibold text-[14px]'>{product.name}</p>
-                                    <p className='space-x-[8px]'><span className='font-Redhat text-[#C73B0F]  font-semibold text-[14px]'>{product.qty}x  </span><span className='font-Redhat text-[#87635A]  font-normal text-[14px]'>@ ${product.price}</span><span className='font-Redhat text-[#87635A] font-semibold text-[14px]'>${product.qty * product.price}</span></p>
+                            <div key={product.name} className='flex items-center justify-between  py-[16px]'>
+                                <div className='flex space-x-[16px] '>
+                                    <img className='w-[48px] h-[48px]' src={product.thumbnail} alt={product.name}></img>
+                                    <div>
+                                        <p className='font-Redhat text-[#260F08] font-semibold text-[14px]'>{product.name}</p>
+                                        <p className='space-x-[8px]'><span className='font-Redhat text-[#C73B0F]  font-semibold text-[14px]'>{product.qty}x  </span><span className='font-Redhat text-[#87635A]  font-normal text-[14px]'>@ ${product.price}</span></p>
+                                    </div>
                                 </div>
+                                <span className='font-Redhat text-[#260F08] font-semibold text-[16px]'>${product.qty * product.price}</span>
                             </div>
                         )
                     })
                 }
 
+                {
+                    <div className='py-[16px]'>
+                        <p className=' flex  justify-between items-center ]'><span className='font-Redhat font-normal text-[14px] text-[#260F08] '>Order Total</span><span className='font-Redhat font-bold text-[24px] text-[#260F08] '>${cartProduct.reduce((total, item) => total + (item.price * item.qty), 0)}</span></p>
+
+                    </div>
+
+                }
+
             </div>
+            <button className='bg-[#C73B0F]  text-white font-semibold text-[16px]   rounded-[999px] px-[24px] py-[16px] ' onClick={handleClick}>Start New Order</button>
+
 
         </div>
     )

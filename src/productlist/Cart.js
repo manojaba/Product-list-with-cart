@@ -1,6 +1,10 @@
 import React from 'react';
 
-function Cart({ cartCount, cartProduct, setCartProduct }) {
+function Cart({ cartCount, cartProduct, setCartProduct, setConfirmation }) {
+
+    const handleClick = () => {
+        setConfirmation((prev) => !prev);
+    }
 
 
 
@@ -30,12 +34,12 @@ function Cart({ cartCount, cartProduct, setCartProduct }) {
                         cartProduct.map((product, index) => {
                             return (
 
-                                <div key={product.name} className='flex items-center justify-between my-[16px]  '>
+                                <div key={product.name} className='flex items-center justify-between py-[16px] '>
                                     <div>
                                         <p className='font-Redhat text-[#260F08] font-semibold text-[14px]'>{product.name}</p>
                                         <p className='space-x-[8px]'><span className='font-Redhat text-[#C73B0F]  font-semibold text-[14px]'>{product.qty}x  </span><span className='font-Redhat text-[#87635A]  font-normal text-[14px]'>@ ${product.price}</span><span className='font-Redhat text-[#87635A] font-semibold text-[14px]'>${product.qty * product.price}</span></p>
                                     </div>
-                                    <button className=' w-[18px] h-[18px] rounded-full border border-[#AD8A85] p-[2px] flex items-center justify-center'><img src='./assets/images/icon-remove-item.svg' onClick={(e) => deleteData(product.name)}></img></button>
+                                    <button className=' w-[18px] h-[18px] rounded-full border border-[#AD8A85] p-[2px] flex items-center justify-center'><img src='./assets/images/icon-remove-item.svg' alt={product.name} onClick={(e) => deleteData(product.name)}></img></button>
                                 </div>
 
 
@@ -69,7 +73,7 @@ function Cart({ cartCount, cartProduct, setCartProduct }) {
                                 <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" fill="none" viewBox="0 0 21 20"><path fill="#1EA575" d="M8 18.75H6.125V17.5H8V9.729L5.803 8.41l.644-1.072 2.196 1.318a1.256 1.256 0 0 1 .607 1.072V17.5A1.25 1.25 0 0 1 8 18.75Z" /><path fill="#1EA575" d="M14.25 18.75h-1.875a1.25 1.25 0 0 1-1.25-1.25v-6.875h3.75a2.498 2.498 0 0 0 2.488-2.747 2.594 2.594 0 0 0-2.622-2.253h-.99l-.11-.487C13.283 3.56 11.769 2.5 9.875 2.5a3.762 3.762 0 0 0-3.4 2.179l-.194.417-.54-.072A1.876 1.876 0 0 0 5.5 5a2.5 2.5 0 1 0 0 5v1.25a3.75 3.75 0 0 1 0-7.5h.05a5.019 5.019 0 0 1 4.325-2.5c2.3 0 4.182 1.236 4.845 3.125h.02a3.852 3.852 0 0 1 3.868 3.384 3.75 3.75 0 0 1-3.733 4.116h-2.5V17.5h1.875v1.25Z" /></svg>
                                 <p className='font-Redhat font-normal text-[14px] text-[#260F08] '>This is a <span className='font-semibold'>carbon-neutral</span> delivery</p>
                             </div>
-                            <button className='bg-[#C73B0F]  text-white font-semibold text-[16px]   rounded-[999px] px-[24px] py-[16px] '>Confirm Order</button>
+                            <button className='bg-[#C73B0F]  text-white font-semibold text-[16px]   rounded-[999px] px-[24px] py-[16px] ' onClick={handleClick}>Confirm Order</button>
 
                         </div>
                     )

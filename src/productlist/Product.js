@@ -8,7 +8,7 @@ function Product({ data, addProduct, decrementProduct }) {
 
     const handleAdd = () => {
         setCount((prev) => prev + 1);
-        addProduct(data.thumbnail, data.name, data.category, data.price, 1);
+        addProduct(data.image.thumbnail, data.name, data.category, data.price, 1);
     };
 
     const handleDecrement = () => {
