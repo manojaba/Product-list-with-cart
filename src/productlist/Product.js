@@ -22,7 +22,7 @@ function Product({ data, addProduct, decrementProduct }) {
 
 
     return (
-        <div className=' w-fit'>
+        <div className=' w-fit mx-auto'>
             <div className='relative mb-[38px]  '>
                 <picture  >
                     <source srcSet={data.image.desktop} media='(min-width:1280px)' />
@@ -70,7 +70,7 @@ function Product({ data, addProduct, decrementProduct }) {
             <p className='text-[#87635A] font-Redhat font-normal text-[14px]'>{data.category}</p>
             <p className='text-[#260F08] font-Redhat font-semibold text-[16px]'>{data.name}</p>
             <p className='text-[#C73B0F] font-Redhat font-semibold text-[16px]'>${data.price}</p>
-            <h1>{count}</h1>
+
 
         </div >
     )

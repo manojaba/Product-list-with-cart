@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Cart from './Cart';
+import ConfirmPage from './ConfirmPage';
 import data from './data.json';
 import Product from './Product';
 
@@ -61,23 +62,25 @@ function Home() {
 
 
     return (
-        <div className='flex'>
+        <div className='p-[24px] bg-[#FCF8F6]' >
+            <h1 className='text-[#260F08] font-Redhat font-extrabold text-[40px] leading-[120%] mb-[32px] '>Desserts</h1>
 
 
-            <div>
-                <h1>{cartCount}</h1>
+            < div className='bg-green-500 space-y-[24px]'>
+
                 {
                     data.map((item, index) => <Product key={index} data={item} addProduct={addProduct} decrementProduct={decrementProduct} />)
                 }
-            </div>
+            </div >
 
             <Cart cartCount={cartCount} cartProduct={cartProduct} setCartProduct={setCartProduct} />
+            <ConfirmPage cartProduct={cartProduct} />
 
 
 
 
 
-        </div>
+        </div >
     )
 }
 
