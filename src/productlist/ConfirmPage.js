@@ -8,7 +8,7 @@ function ConfirmPage({ cartProduct, setConfirmation, setCartProduct }) {
     }
 
     return (
-        <div className='bg-gray-900 bg-opacity-70 fixed inset-0 flex'>
+        <div className='bg-gray-900 bg-opacity-70 fixed inset-0 flex '>
             <div className={`p-[24px] pt-[40px] bg-white  rounded-[12px] space-y-[32px] flex flex-col h-min my-auto   z-50  mx-auto w-full md:max-w-2xl xl:max-w-xl`}>
                 <div className='space-y-[24px]'>
                     <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">

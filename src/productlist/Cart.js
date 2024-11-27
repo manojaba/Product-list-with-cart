@@ -25,7 +25,7 @@ function Cart({ cartCount, cartProduct, setCartProduct, setConfirmation }) {
     }
 
     return (
-        <div className='p-[24px] bg-white rounded-[12px] mt-[32px]  h-fit w-1/2   xl:min-w-[384px]'>
+        <div className='p-[24px] bg-white rounded-[12px] mt-[32px]  h-fit    xl:min-w-[384px]'>
             <h1 className='font-Redhat font-bold text-[24px] text-[#C73B0F] mb-[24px]'>Your Cart ({cartCount})</h1>
             <div className='divide-y'>
                 {
