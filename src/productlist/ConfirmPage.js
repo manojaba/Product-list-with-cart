@@ -1,14 +1,15 @@
 import React from 'react';
 
-function ConfirmPage({ cartProduct, setConfirmation }) {
+function ConfirmPage({ cartProduct, setConfirmation, setCartProduct }) {
 
     const handleClick = () => {
         setConfirmation((prev) => !prev);
+        setCartProduct([]);
     }
 
     return (
-        <div className='bg-gray-900 bg-opacity-50 fixed inset-0 flex'>
-            <div className={`p-[24px] pt-[40px] bg-white  rounded-[12px] space-y-[32px] flex flex-col h-min my-auto   z-50  mx-auto w-full md:max-w-2xl`}>
+        <div className='bg-gray-900 bg-opacity-70 fixed inset-0 flex'>
+            <div className={`p-[24px] pt-[40px] bg-white  rounded-[12px] space-y-[32px] flex flex-col h-min my-auto   z-50  mx-auto w-full md:max-w-2xl xl:max-w-xl`}>
                 <div className='space-y-[24px]'>
                     <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M21 32.121L13.5 24.6195L15.6195 22.5L21 27.879L32.3775 16.5L34.5 18.6225L21 32.121Z" fill="#1EA575" />

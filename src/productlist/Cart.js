@@ -25,9 +25,9 @@ function Cart({ cartCount, cartProduct, setCartProduct, setConfirmation }) {
     }
 
     return (
-        <div className='p-[24px] bg-white rounded-[12px] mt-[32px]'>
+        <div className='p-[24px] bg-white rounded-[12px] mt-[32px]  h-fit w-1/2   xl:min-w-[384px]'>
             <h1 className='font-Redhat font-bold text-[24px] text-[#C73B0F] mb-[24px]'>Your Cart ({cartCount})</h1>
-            <div className='divide-y bg-yellow-600'>
+            <div className='divide-y'>
                 {
                     cartProduct.length > 0 ? (
 
@@ -67,8 +67,8 @@ function Cart({ cartCount, cartProduct, setCartProduct, setConfirmation }) {
 
                 {
                     cartProduct.length > 0 && (
-                        <div className='space-y-[24px] flex flex-col items-stretch  bg-blue-300'>
-                            <p className=' flex  justify-between items-center ]'><span className='font-Redhat font-normal text-[14px] text-[#260F08] '>Order Total</span><span className='font-Redhat font-bold text-[24px] text-[#260F08] '>${cartProduct.reduce((total, item) => total + (item.price * item.qty), 0)}</span></p>
+                        <div className='space-y-[24px] flex flex-col items-stretch '>
+                            <p className=' flex  justify-between items-center ]'><span className='font-Redhat font-normal text-[14px] text-[#260F08] '>Order Total</span><span className='font-Redhat font-extrabold text-[24px] text-[#260F08] '>${cartProduct.reduce((total, item) => total + (item.price * item.qty), 0)}</span></p>
                             <div className='bg-[#FCF8F6] p-[16px]  flex items-center justify-center space-x[8px] rounded-[8px]'>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" fill="none" viewBox="0 0 21 20"><path fill="#1EA575" d="M8 18.75H6.125V17.5H8V9.729L5.803 8.41l.644-1.072 2.196 1.318a1.256 1.256 0 0 1 .607 1.072V17.5A1.25 1.25 0 0 1 8 18.75Z" /><path fill="#1EA575" d="M14.25 18.75h-1.875a1.25 1.25 0 0 1-1.25-1.25v-6.875h3.75a2.498 2.498 0 0 0 2.488-2.747 2.594 2.594 0 0 0-2.622-2.253h-.99l-.11-.487C13.283 3.56 11.769 2.5 9.875 2.5a3.762 3.762 0 0 0-3.4 2.179l-.194.417-.54-.072A1.876 1.876 0 0 0 5.5 5a2.5 2.5 0 1 0 0 5v1.25a3.75 3.75 0 0 1 0-7.5h.05a5.019 5.019 0 0 1 4.325-2.5c2.3 0 4.182 1.236 4.845 3.125h.02a3.852 3.852 0 0 1 3.868 3.384 3.75 3.75 0 0 1-3.733 4.116h-2.5V17.5h1.875v1.25Z" /></svg>
                                 <p className='font-Redhat font-normal text-[14px] text-[#260F08] '>This is a <span className='font-semibold'>carbon-neutral</span> delivery</p>

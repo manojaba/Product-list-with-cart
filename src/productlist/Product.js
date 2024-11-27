@@ -6,15 +6,22 @@ function Product({ data, addProduct, decrementProduct }) {
 
     const [count, setCount] = useState(0);
 
+
+
+
     const handleAdd = () => {
         setCount((prev) => prev + 1);
         addProduct(data.image.thumbnail, data.name, data.category, data.price, 1);
+
+
+
+
     };
 
     const handleDecrement = () => {
-        if (count < 0) {
+        if (count > 0) {
             setCount((prev) => prev - 1);
-            addProduct(data.name);
+            decrementProduct(data.name);
         }
     }
 
@@ -22,7 +29,7 @@ function Product({ data, addProduct, decrementProduct }) {
 
 
     return (
-        <div className=' w-fit mx-auto bg-red-500'>
+        <div className=' w-fit mx-auto '>
             <div className='relative mb-[38px]  '>
                 <picture  >
                     <source srcSet={data.image.desktop} media='(min-width:1280px)' />

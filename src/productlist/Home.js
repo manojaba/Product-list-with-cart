@@ -7,7 +7,8 @@ import Product from './Product';
 
 function Home() {
 
-    const [confirmation, setConfirmation] = useState(true);
+    const [confirmation, setConfirmation] = useState(false);
+    const [main, setmain] = useState(0);
 
 
 
@@ -37,7 +38,7 @@ function Home() {
 
 
     const addProduct = (thumbnail, name, category, price, qty) => {
-        console.log({ thumbnail, name, category, price, qty }); // Debug here
+
         setCartProduct((prev) => {
             const existingProduct = prev.find((item) => item.name === name);
             if (existingProduct) {
@@ -71,29 +72,33 @@ function Home() {
 
 
     return (
-        <div className={`p-[24px] md:p-[40px] bg-[#FCF8F6] relative transition-all duration-300 flex justify-center items-center`} >
-            <div>
-                <h1 className='text-[#260F08] font-Redhat font-extrabold text-[40px] leading-[120%] mb-[32px] '>Desserts</h1>
+        <div className='flex items-center justify-center'>
+            <div className={`p-[24px] md:p-[40px] bg-[#FCF8F6] relative transition-all duration-300 flex flex-col  xl:flex-row xl:gap-[32px] xl:p-[88px] flex-2`} >
+                <div>
+                    <h1 className='text-[#260F08] font-Redhat font-extrabold text-[40px] leading-[120%] mb-[32px] '>Desserts</h1>
 
 
-                < div className='bg-green-500 space-y-[24px] md:space-y-0 md:grid md:grid-cols-3 md:gap-x-[24px] md:gap-y-[32px] '>
+                    < div className=' space-y-[24px] md:space-y-0 md:grid md:grid-cols-3 md:gap-x-[24px] md:gap-y-[32px] '>
 
-                    {
-                        data.map((item, index) => <Product key={index} data={item} addProduct={addProduct} decrementProduct={decrementProduct} />)
-                    }
-                </div >
+                        {
+                            data.map((item, index) => <Product key={index} data={item} addProduct={addProduct} decrementProduct={decrementProduct} setmain={setmain} cartProduct={cartProduct} />)
+                        }
+                    </div >
+
+                </div>
 
                 <Cart cartCount={cartCount} cartProduct={cartProduct} setCartProduct={setCartProduct} setConfirmation={setConfirmation} />
-            </div>
-
-
-            {confirmation && <ConfirmPage cartProduct={cartProduct} setConfirmation={setConfirmation} />}
 
 
 
+                {confirmation && <ConfirmPage cartProduct={cartProduct} setConfirmation={setConfirmation} setCartProduct={setCartProduct} />}
 
 
-        </div >
+
+
+
+            </div >
+        </div>
     )
 }
 
